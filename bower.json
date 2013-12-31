@@ -12,7 +12,8 @@
     "momentjs": "latest",
     "ng-csv": "latest",
     "foundation": "zurb/bower-foundation",
-    "angular": "latest"
+    "angular": "latest",
+    "jquery-csv": "latest"
   },
   "resolutions": {
     "angular": "1.2.6"
