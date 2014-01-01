@@ -1,2 +1,6 @@
 @import "settings";
 @import "foundation";
+.heavy {
+	border: 1px solid red;
+	background-color: lighten(#ff0000, 40%);
+}

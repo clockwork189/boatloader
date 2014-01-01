@@ -1,93 +1,333 @@
 <div class="large-12 columns" data-ng-init="loadAllPaddlers()">
 	<div class="panel text-center">
 		<div class="row">
-			<div class="large-4 columns">
-				<h3>Paddlers</h3>
-				<div class="row">
-					<div class="large-3 columns">
-						<label>Upload CSV</label>
+			<div class="large-6 columns">
+			<dl class="tabs" data-tab>
+			  	<dd class="active"><a href="#panel2-1">Add Paddlers</a></dd>
+			  	<dd><a href="#panel2-2">Boat Stats</a></dd>
+			</dl>
+			<div class="tabs-content">
+			  	<div class="content active" id="panel2-1">
+					<div class="row">
+						<div class="large-3 columns">
+							<label>Name:</label>
+						</div>
+						<div class="large-9 columns">
+							<input type="text" data-ng-model="paddler.name"/>
+						</div>
 					</div>
-					<div class="large-9 columns">
-						<input type="file" fileread="uploadme" />
+					<div class="row">
+						<div class="large-3 columns">
+							<label>Weight:</label>
+						</div>
+						<div class="large-9 columns">
+							<input type="text" data-ng-model="paddler.weight"/>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="large-3 columns">
-						<label>Name:</label>
+					<div class="row">
+						<div class="large-3 columns">
+							<label>Age:</label>
+						</div>
+						<div class="large-9 columns">
+							<input type="text" data-ng-model="paddler.age"/>
+						</div>
 					</div>
-					<div class="large-9 columns">
-						<input type="text" data-ng-model="paddler.name"/>
+					<div class="row">
+						<div class="large-3 columns">
+							<label>Experience:</label>
+						</div>
+						<div class="large-9 columns">
+							<input type="text" data-ng-model="paddler.experience"/>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="large-3 columns">
-						<label>Weight:</label>
-					</div>
-					<div class="large-9 columns">
-						<input type="text" data-ng-model="paddler.weight"/>
-					</div>
-				</div>
-				<div class="row">
-					<div class="large-3 columns">
-						<label>Age:</label>
-					</div>
-					<div class="large-9 columns">
-						<input type="text" data-ng-model="paddler.age"/>
-					</div>
-				</div>
-				<div class="row">
-					<div class="large-3 columns">
-						<label>Experience:</label>
-					</div>
-					<div class="large-9 columns">
-						<input type="text" data-ng-model="paddler.experience"/>
-					</div>
-				</div>
-				<div class="row">
-					<div class="large-3 columns">
-						<label>Gender:</label>
-					</div>
-					<div class="large-9 columns">
-						<div class=:"row">
-							<div class="large-6 columns text-left">
-								<input type="radio" data-ng-model="paddler.gender" value="male"/> Male <br/>
-							</div>
-							<div class="large-6 columns">
-								<input type="radio" data-ng-model="paddler.gender" value="female"/> Female <br/>
+					<div class="row">
+						<div class="large-3 columns">
+							<label>Gender:</label>
+						</div>
+						<div class="large-9 columns">
+							<div class=:"row">
+								<div class="large-6 columns text-left">
+									<input type="radio" data-ng-model="paddler.gender" value="male"/> Male <br/>
+								</div>
+								<div class="large-6 columns">
+									<input type="radio" data-ng-model="paddler.gender" value="female"/> Female <br/>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="large-3 columns">
-						<label>Side:</label>
-					</div>
-					<div class="large-9 columns">
-						<div class=:"row">
-							<div class="large-12 columns text-left">
-								<input type="radio" data-ng-model="paddler.side" value="left" data-ng-selected/> Left
-							</div>
-							<div class="large-12 columns text-left">
-								<input type="radio" data-ng-model="paddler.side" value="right"/> Right
-							</div>
-							<div class="large-12 columns text-left">
-								<input type="radio" data-ng-model="paddler.side" value="both"/> Both
+					<div class="row">
+						<div class="large-3 columns">
+							<label>Side:</label>
+						</div>
+						<div class="large-9 columns">
+							<div class=:"row">
+								<div class="large-12 columns text-left">
+									<input type="radio" data-ng-model="paddler.side" value="left" data-ng-selected/> Left
+								</div>
+								<div class="large-12 columns text-left">
+									<input type="radio" data-ng-model="paddler.side" value="right"/> Right
+								</div>
+								<div class="large-12 columns text-left">
+									<input type="radio" data-ng-model="paddler.side" value="both"/> Both
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="large-3 columns">
-						&nbsp;
+					<div class="row">
+						<div class="large-3 columns">
+							<label>Upload CSV</label>
+						</div>
+						<div class="large-9 columns text-left">
+							<a href="downloads/paddlers.csv"> Download Sample CSV</a>
+							<input type="file" fileread file="roster" />
+						</div>
 					</div>
-					<div class="large-9 columns text-left">
-						<button data-ng-click="savePaddler()">Save Paddler</button>
+					<div class="row">
+						<div class="large-3 columns">
+							&nbsp;
+						</div>
+						<div class="large-9 columns text-left">
+							<button data-ng-click="finishUpload()" class="tiny">Upload</button>
+						</div>
 					</div>
-				</div>
+					<div class="row">
+						<div class="large-3 columns">
+							&nbsp;
+						</div>
+						<div class="large-9 columns text-left">
+							<button data-ng-click="savePaddler()" class="success medium">Save Paddler</button>
+						</div>
+					</div>
+			  	</div>
+			  	<div class="content" id="panel2-2">
+			    	<table>
+			    		<tr>
+			    			<th>Seat #</th>
+			    			<th>Left</th>
+			    			<th>Right</th>
+			    		</tr>
+			    		<tr>
+							<td>
+								1
+							</td>
+							<td>
+								<% boatOrder.left.left1.name %><br/>
+								<% boatOrder.left.left1.weight %><br/>
+								<% boatOrder.left.left1.age %><br/>
+								<% boatOrder.left.left1.gender %><br/>
+								<% boatOrder.left.left1.experience %><br/>
+								<% boatOrder.left.left1.side %>
+							</td>
+							<td>
+								<% boatOrder.right.right1.name %><br/>
+								<% boatOrder.right.right1.weight %><br/>
+								<% boatOrder.right.right1.age %><br/>
+								<% boatOrder.right.right1.gender %><br/>
+								<% boatOrder.right.right1.experience %><br/>
+								<% boatOrder.right.right1.side %>
+							</td>
+			    		</tr>
+			    		<tr>
+							<td>
+								2
+							</td>
+							<td>
+								<% boatOrder.left.left2.name %><br/>
+								<% boatOrder.left.left2.weight %><br/>
+								<% boatOrder.left.left2.age %><br/>
+								<% boatOrder.left.left2.gender %><br/>
+								<% boatOrder.left.left2.experience %><br/>
+								<% boatOrder.left.left2.side %>
+							</td>
+							<td>
+								<% boatOrder.right.right2.name %><br/>
+								<% boatOrder.right.right2.weight %><br/>
+								<% boatOrder.right.right2.age %><br/>
+								<% boatOrder.right.right2.gender %><br/>
+								<% boatOrder.right.right2.experience %><br/>
+								<% boatOrder.right.right2.side %>
+							</td>
+			    		</tr>
+			    		<tr>
+							<td>
+								3
+							</td>
+							<td>
+								<% boatOrder.left.left3.name %><br/>
+								<% boatOrder.left.left3.weight %><br/>
+								<% boatOrder.left.left3.age %><br/>
+								<% boatOrder.left.left3.gender %><br/>
+								<% boatOrder.left.left3.experience %><br/>
+								<% boatOrder.left.left3.side %>
+							</td>
+							<td>
+								<% boatOrder.right.right3.name %><br/>
+								<% boatOrder.right.right3.weight %><br/>
+								<% boatOrder.right.right3.age %><br/>
+								<% boatOrder.right.right3.gender %><br/>
+								<% boatOrder.right.right3.experience %><br/>
+								<% boatOrder.right.right3.side %>
+							</td>
+			    		</tr>
+			    		<tr>
+							<td>
+								4
+							</td>
+							<td>
+								<% boatOrder.left.left4.name %><br/>
+								<% boatOrder.left.left4.weight %><br/>
+								<% boatOrder.left.left4.age %><br/>
+								<% boatOrder.left.left4.gender %><br/>
+								<% boatOrder.left.left4.experience %><br/>
+								<% boatOrder.left.left4.side %>
+							</td>
+							<td>
+								<% boatOrder.right.right4.name %><br/>
+								<% boatOrder.right.right4.weight %><br/>
+								<% boatOrder.right.right4.age %><br/>
+								<% boatOrder.right.right4.gender %><br/>
+								<% boatOrder.right.right4.experience %><br/>
+								<% boatOrder.right.right4.side %>
+							</td>
+			    		</tr>
+			    		<tr>
+							<td>
+								5
+							</td>
+							<td>
+								<% boatOrder.left.left5.name %><br/>
+								<% boatOrder.left.left5.weight %><br/>
+								<% boatOrder.left.left5.age %><br/>
+								<% boatOrder.left.left5.gender %><br/>
+								<% boatOrder.left.left5.experience %><br/>
+								<% boatOrder.left.left5.side %>
+							</td>
+							<td>
+								<% boatOrder.right.right5.name %><br/>
+								<% boatOrder.right.right5.weight %><br/>
+								<% boatOrder.right.right5.age %><br/>
+								<% boatOrder.right.right5.gender %><br/>
+								<% boatOrder.right.right5.experience %><br/>
+								<% boatOrder.right.right5.side %>
+							</td>
+			    		</tr>
+			    		<tr>
+							<td>
+								6
+							</td>
+							<td>
+								<% boatOrder.left.left6.name %><br/>
+								<% boatOrder.left.left6.weight %><br/>
+								<% boatOrder.left.left6.age %><br/>
+								<% boatOrder.left.left6.gender %><br/>
+								<% boatOrder.left.left6.experience %><br/>
+								<% boatOrder.left.left6.side %>
+							</td>
+							<td>
+								<% boatOrder.right.right6.name %><br/>
+								<% boatOrder.right.right6.weight %><br/>
+								<% boatOrder.right.right6.age %><br/>
+								<% boatOrder.right.right6.gender %><br/>
+								<% boatOrder.right.right6.experience %><br/>
+								<% boatOrder.right.right6.side %>
+							</td>
+			    		</tr>
+			    		<tr>
+							<td>
+								7
+							</td>
+							<td>
+								<% boatOrder.left.left7.name %><br/>
+								<% boatOrder.left.left7.weight %><br/>
+								<% boatOrder.left.left7.age %><br/>
+								<% boatOrder.left.left7.gender %><br/>
+								<% boatOrder.left.left7.experience %><br/>
+								<% boatOrder.left.left7.side %>
+							</td>
+							<td>
+								<% boatOrder.right.right7.name %><br/>
+								<% boatOrder.right.right7.weight %><br/>
+								<% boatOrder.right.right7.age %><br/>
+								<% boatOrder.right.right7.gender %><br/>
+								<% boatOrder.right.right7.experience %><br/>
+								<% boatOrder.right.right7.side %>
+							</td>
+			    		</tr>
+			    		<tr>
+							<td>
+								8
+							</td>
+							<td>
+								<% boatOrder.left.left8.name %><br/>
+								<% boatOrder.left.left8.weight %><br/>
+								<% boatOrder.left.left8.age %><br/>
+								<% boatOrder.left.left8.gender %><br/>
+								<% boatOrder.left.left8.experience %><br/>
+								<% boatOrder.left.left8.side %>
+							</td>
+							<td>
+								<% boatOrder.right.right8.name %><br/>
+								<% boatOrder.right.right8.weight %><br/>
+								<% boatOrder.right.right8.age %><br/>
+								<% boatOrder.right.right8.gender %><br/>
+								<% boatOrder.right.right8.experience %><br/>
+								<% boatOrder.right.right8.side %>
+							</td>
+			    		</tr>
+			    		<tr>
+							<td>
+								9
+							</td>
+							<td>
+								<% boatOrder.left.left9.name %><br/>
+								<% boatOrder.left.left9.weight %><br/>
+								<% boatOrder.left.left9.age %><br/>
+								<% boatOrder.left.left9.gender %><br/>
+								<% boatOrder.left.left9.experience %><br/>
+								<% boatOrder.left.left9.side %>
+							</td>
+							<td>
+								<% boatOrder.right.right9.name %><br/>
+								<% boatOrder.right.right9.weight %><br/>
+								<% boatOrder.right.right9.age %><br/>
+								<% boatOrder.right.right9.gender %><br/>
+								<% boatOrder.right.right9.experience %><br/>
+								<% boatOrder.right.right9.side %>
+							</td>
+			    		</tr>
+			    		<tr>
+							<td>
+								10
+							</td>
+							<td>
+								<% boatOrder.left.left10.name %><br/>
+								<% boatOrder.left.left10.weight %><br/>
+								<% boatOrder.left.left10.age %><br/>
+								<% boatOrder.left.left10.gender %><br/>
+								<% boatOrder.left.left10.experience %><br/>
+								<% boatOrder.left.left10.side %>
+							</td>
+							<td>
+								<% boatOrder.right.right10.name %><br/>
+								<% boatOrder.right.right10.weight %><br/>
+								<% boatOrder.right.right10.age %><br/>
+								<% boatOrder.right.right10.gender %><br/>
+								<% boatOrder.right.right10.experience %><br/>
+								<% boatOrder.right.right10.side %>
+							</td>
+			    		</tr>
+			    	</table>
+			  	</div>
 			</div>
-			<div class="large-8 columns">
+			</div>
+			<div class="large-6 columns">
 				<h3>Boat Order</h3>
 				<hr/>
+				<div class="row">
+					<div class="large-12 columns text-center">
+						<button data-ng-click="checkBoat()">Check Boat Status</button>
+					</div>
+				</div>
 				<div class="row">
 					<div class="large-2 columns">
 						<strong>Seat #</strong>
@@ -99,114 +339,159 @@
 						<strong>Right Side</strong>
 					</div>
 				</div>
-				<div class="row">
-					<div class="large-2 columns">
-						1
+				<div data-ng-class="{ 'heavy': frontHeavy == true }">
+					<div class="row">
+						<div class="large-2 columns">
+							1
+						</div>
+						<div class="large-5 columns" data-ng-class="{ 'heavy': rightHeavy == true }">
+							<select data-ng-model="boatOrder.left.left1" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
+						</div>
+						<div class="large-5 columns">
+							<select data-ng-model="boatOrder.right.right1" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
+						</div>
 					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="left1" data-ng-options="p.name group by p.side for p in paddlers"></select>
+					<div class="row">
+						<div class="large-2 columns">
+							2
+						</div>
+						<div class="large-5 columns" data-ng-class="{ 'heavy': rightHeavy == true }">
+							<select data-ng-model="boatOrder.left.left2" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
+						</div>
+						<div class="large-5 columns" data-ng-class="{ 'heavy': leftHeavy == true }">
+							<select data-ng-model="boatOrder.right.right2" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
+						</div>
 					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="right1" data-ng-options="c.name for c in paddlers"></select>
+					<div class="row">
+						<div class="large-2 columns">
+							3
+						</div>
+						<div class="large-5 columns" data-ng-class="{ 'heavy': rightHeavy == true }">
+							<select data-ng-model="boatOrder.left.left3" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
+						</div>
+						<div class="large-5 columns" data-ng-class="{ 'heavy': leftHeavy == true }">
+							<select data-ng-model="boatOrder.right.right3" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="large-2 columns">
-						2
-					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="left2" data-ng-options="p.name group by p.side for p in paddlers"></select>
-					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="right2" data-ng-options="c.name for c in paddlers"></select>
-					</div>
-				</div>
-				<div class="row">
-					<div class="large-2 columns">
-						3
-					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="left3" data-ng-options="p.name group by p.side for p in paddlers"></select>
-					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="right3" data-ng-options="c.name for c in paddlers"></select>
-					</div>
-				</div>
-				<div class="row">
-					<div class="large-2 columns">
-						4
-					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="left4" data-ng-options="p.name group by p.side for p in paddlers"></select>
-					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="right4" data-ng-options="c.name for c in paddlers"></select>
+					<div class="row">
+						<div class="large-2 columns">
+							4
+						</div>
+						<div class="large-5 columns" data-ng-class="{ 'heavy': rightHeavy == true }">
+							<select data-ng-model="boatOrder.left.left4" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
+						</div>
+						<div class="large-5 columns" data-ng-class="{ 'heavy': leftHeavy == true }">
+							<select data-ng-model="boatOrder.right.right4" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
+						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="large-2 columns">
 						5
 					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="left5" data-ng-options="p.name group by p.side for p in paddlers"></select>
+					<div class="large-5 columns" data-ng-class="{ 'heavy': rightHeavy == true }">
+						<select data-ng-model="boatOrder.left.left5" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
 					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="right5" data-ng-options="c.name for c in paddlers"></select>
+					<div class="large-5 columns" data-ng-class="{ 'heavy': leftHeavy == true }">
+						<select data-ng-model="boatOrder.right.right5" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
 					</div>
 				</div>
 				<div class="row">
 					<div class="large-2 columns">
 						6
 					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="left6" data-ng-options="p.name group by p.side for p in paddlers"></select>
+					<div class="large-5 columns" data-ng-class="{ 'heavy': rightHeavy == true }">
+						<select data-ng-model="boatOrder.left.left6" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
 					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="right6" data-ng-options="c.name for c in paddlers"></select>
-					</div>
-				</div>
-				<div class="row">
-					<div class="large-2 columns">
-						7
-					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="left7" data-ng-options="p.name group by p.side for p in paddlers"></select>
-					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="right7" data-ng-options="c.name for c in paddlers"></select>
+					<div class="large-5 columns" data-ng-class="{ 'heavy': leftHeavy == true }">
+						<select data-ng-model="boatOrder.right.right6" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
 					</div>
 				</div>
-				<div class="row">
-					<div class="large-2 columns">
-						8
+				<div data-ng-class="{ 'heavy': backHeavy == true }">
+					<div class="row">
+						<div class="large-2 columns">
+							7
+						</div>
+						<div class="large-5 columns" data-ng-class="{ 'heavy': rightHeavy == true }">
+							<select data-ng-model="boatOrder.left.left7" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
+						</div>
+						<div class="large-5 columns" data-ng-class="{ 'heavy': leftHeavy == true }">
+							<select data-ng-model="boatOrder.right.right7" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
+						</div>
 					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="left8" data-ng-options="p.name group by p.side for p in paddlers"></select>
+					<div class="row">
+						<div class="large-2 columns">
+							8
+						</div>
+						<div class="large-5 columns" data-ng-class="{ 'heavy': rightHeavy == true }">
+							<select data-ng-model="boatOrder.left.left8" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
+						</div>
+						<div class="large-5 columns" data-ng-class="{ 'heavy': leftHeavy == true }">
+							<select data-ng-model="boatOrder.right.right8" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
+						</div>
 					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="right8" data-ng-options="c.name for c in paddlers"></select>
+					<div class="row">
+						<div class="large-2 columns">
+							9
+						</div>
+						<div class="large-5 columns" data-ng-class="{ 'heavy': rightHeavy == true }">
+							<select data-ng-model="boatOrder.left.left9" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
+						</div>
+						<div class="large-5 columns" data-ng-class="{ 'heavy': leftHeavy == true }">
+							<select data-ng-model="boatOrder.right.right9" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="large-2 columns">
-						9
+					<div class="row">
+						<div class="large-2 columns">
+							10
+						</div>
+						<div class="large-5 columns" data-ng-class="{ 'heavy': rightHeavy == true }">
+							<select data-ng-model="boatOrder.left.left10" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
+						</div>
+						<div class="large-5 columns" data-ng-class="{ 'heavy': leftHeavy == true }">
+							<select data-ng-model="boatOrder.right.right10" data-ng-options="p as p.name group by p.side for p in paddlers"></select>
+						</div>
 					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="left9" data-ng-options="p.name group by p.side for p in paddlers"></select>
+					<hr/>
+					<div class="row">
+						<div class="large-5 columns text-right">
+							Boat Weight:
+						</div>
+						<div class="large-7 columns text-left">
+							<% weights.boat %>
+						</div>
 					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="right9" data-ng-options="c.name for c in paddlers"></select>
+					<div class="row">
+						<div class="large-5 columns text-right">
+							Front 4 rows Weight:
+						</div>
+						<div class="large-7 columns text-left">
+							<% weights.front %>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="large-2 columns">
-						10
+					<div class="row">
+						<div class="large-5 columns text-right">
+							Back 4 rows Weight:
+						</div>
+						<div class="large-7 columns text-left">
+							<% weights.back %>
+						</div>
 					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="left10" data-ng-options="p.name group by p.side for p in paddlers"></select>
+					<div class="row">
+						<div class="large-5 columns text-right">
+							Left Side Weight:
+						</div>
+						<div class="large-7 columns text-left">
+							<% weights.left %>
+						</div>
 					</div>
-					<div class="large-5 columns">
-						<select data-ng-model="right10" data-ng-options="c.name for c in paddlers"></select>
+					<div class="row">
+						<div class="large-5 columns text-right">
+							Right Side Weight:
+						</div>
+						<div class="large-7 columns text-left">
+							<% weights.right %>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -214,7 +499,7 @@
 	</div>
 	<div class="row">
 		<div class="large-12 columns">
-			<table>
+			<table class="large-12 columns">
 				<tr>
 					<th>Name</th>
 					<th>Side</th>
